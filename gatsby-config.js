@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "All is fake",
-    description: "You are not real, I am not real.",
+    siteUrl: "https://cranky-spence-362162.netlify.app",
+    title: "ZhengYu's blog",
+    description: "Da Jia Hao means hello in Chinese.",
   },
   plugins: [
     "gatsby-plugin-image",

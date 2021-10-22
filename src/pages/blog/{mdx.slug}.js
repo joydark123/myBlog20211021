@@ -7,7 +7,8 @@ const BlogPost = ({ data }) => {
   
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
-      <p>{data.mdx.frontmatter.date}</p>
+      <p>Modified:{data.mdx.parent.modifiedTime}</p>
+      <p>Posted:{data.mdx.frontmatter.date}</p>
       <MDXRenderer>
         {data.mdx.body}
       </MDXRenderer>
@@ -17,15 +18,20 @@ const BlogPost = ({ data }) => {
 }
 
 export const query = graphql`
-  query ($id: String) {
-    mdx(id: {eq: $id}) {
-      frontmatter {
-        title
-        date(formatString: "MMMM D, YYYY")
+query ($id: String) {
+  mdx(id: {eq: $id}) {
+    frontmatter {
+      title
+      date(formatString: "MMMM D, YYYY")
+    }
+    body
+    parent {
+      ... on File {
+        modifiedTime(formatString: "MMMM D, YYYY")
       }
-      body
     }
   }
+}
 `
 
 export default BlogPost

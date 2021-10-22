@@ -13,6 +13,7 @@ const BlogPage = ({ data }) => {
                 {node.frontmatter.title}
               </Link>
             </h2>
+            <p>Modified:{node.parent.modifiedTime}</p>
             <p>Posted: {node.frontmatter.date}</p>
           </article>
         ))
@@ -31,6 +32,11 @@ export const query = graphql`
         }
         id
         slug
+        parent {
+          ... on File {
+            modifiedTime(formatString: "MMMM D, YYYY")
+          }
+        }
       }
     }
   }
