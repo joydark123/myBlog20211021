@@ -6,7 +6,7 @@ const AboutPage = () => {
     return (
         <Layout pageTitle="About Me">
             <p>Hello! My name is ZhengYu.</p>
-            <p>I will share something here.</p>
+            
             
         </Layout>
     )
